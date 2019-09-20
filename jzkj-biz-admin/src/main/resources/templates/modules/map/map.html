@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <link rel="stylesheet" type="text/css" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet"  type="text/css"href="//cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="css/datatables.min.css">
+    <link rel="stylesheet"  type="text/css"href="css/jquery.dataTables.css">
+
+    <style type="text/css">
+        body, html,#allmap {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+        <!--overflow: hidden;-->
+
+        #map_canvas img {
+            max-width: none;
+        }
+    </style>
+    <style type="text/css">
+        body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+        #container { width:100%; padding:0; margin:0 auto; height:100%;}
+        #map_canvas{width:60%;float:right; text-align:center; line-height:600px; height:600px; display:block; background-color:#ccc; color:#f00;}
+        #lefter{width:40%; float:left; text-align:left; line-height:20px; height:600px; display:block; background-color:#cc0; color:#000;}
+    </style>
+
+
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=7b7Tgs6cNnt0sUPWuVD16Sr6"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/datatables.min.js"></script>
+    <script type="text/javascript" src="js/jquery.dataTables.js"></script>
+
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script>
+
+        var map = new AMap.Map("mapContainer", {
+            resizeEnable: true,
+            center: [116.397428, 39.90923],
+            zoom: 13
+        });
+        // 地图类型切换
+        map.plugin(["AMap.MapType"], function () {
+            var type = new AMap.MapType({
+                defaultType: 0
+            });
+            map.addControl(type);
+        });
+    </script>
+    <title>编辑停车场地理位置</title>
+</head>
+<body>
+<!--<div id="container">-->
+    <!--<div id="lefter">-->
+        <!--<table id="parkingList" cellpadding="0">-->
+            <!--<thead>-->
+                <!--<th>ID</th>-->
+                <!--<th>名称</th>-->
+                <!--<th>地址</th>-->
+                <!--<th>经度</th>-->
+                <!--<th>纬度</th>-->
+                <!--<th>编辑</th>-->
+            <!--</thead>-->
+        <!--</table>-->
+    <!--</div>-->
+
+    <div id="map_canvas"></div>
+</div>
+</body>
+</html>

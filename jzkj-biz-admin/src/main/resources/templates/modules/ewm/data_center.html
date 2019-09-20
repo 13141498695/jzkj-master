@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>建站宝-数据中心</title>
+	<!--css-->
+	<link rel="Shortcut Icon" type="images/x-icon" href="images/favicon.ico" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css"  href="css/daterangepicker.css" />
+	<link rel="stylesheet" type="text/css" href="css/pubile.css" />
+  <link rel="stylesheet" type="text/css" href="js/layui/css/layui.css" />
+  <link rel="stylesheet" type="text/css" href="js/layui/css/modules/layer/default/layer.css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+	
+	<!--js-->
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+	<!--header  start-->
+		<div class="header">
+			<a href="index.html"><img src="images/logo.png" alt="" class="logo"  /></a>
+			  <ul>
+			  	<li class="company"><span>北京鉴真科技有限公司</span><a href="login.html" class="blue">退出</a></li>
+			  	<li class="new_prodict_show"><a href="javascript:;">创建产品项目</a></li>
+			  </ul>
+
+		</div>
+	<!--header   end-->
+
+ <!--main  start-->
+  <div class="main">
+   <!--left_concont  start-->
+  	<div class="left_concont">
+	  	<ul>
+        <li><a href="index.html"><img src="images/meau_1.png" alt="" />项目中心</a></li>
+        <li class="cur"><a href="data_center.html"><img src="images/meau_2.png" alt="" />数据中心</a></li>
+        <li><a href="templute_center.html"><img src="images/meau_3.png" alt="" />模板中心</a></li>
+	  	</ul>
+    </div>
+
+  <!--left_concont  end-->
+     <div class="content">
+     	<div class="content_top">
+     		<select name="" id="" class="layui-select layui_select_data"></select>
+     		<div class="input-prepend input-group left">
+    			<input type="text" readonly id="reservation" name="" class="layui-input"  /> 
+    			<i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+			</div>
+
+			<div class="seach_inp">
+			  <input type="text"  name="" class="layui-input seash_inputs" placeholder="输入创建内容" />
+			  <span class="glyphicon glyphicon-search seash_input_glyphicon"></span>
+			</div>
+			<a class="layui-btn layui-btn-normal layui-btn-dz" >导出数据</a>
+     	</div>
+         
+         <!--表格渲染 开始-->
+          <div class='table-cont' id="table-cont">
+              <table class="table-width">
+                <thead class="page_table_th"><tr></tr></thead>
+                <tbody class="page_table"></tbody>
+              </table>
+           </div>
+              <div class="showimgy"><img src="images/nodata.png" class="nodata" alt="" /></div>
+             <ul class="page">
+                <li class="no_border">每页显示条数</li>
+                <li class="no_border">
+                  <select onchange="page_limit()" id="page_limit"><option value="10">10条</option>
+                  <option value="20">20条</option>
+                  <option value="30">30条</option>
+                </select>
+                </li>
+                <span class="page_table_link page" actions="page"></span>
+            </ul>
+          <!--表格渲染 结束-->
+
+     	<div class="banquqn"></div>
+     </div>
+   </div>
+  <!--content  end-->
+<!--main  end-->
+<!--弹出层 end-->
+  <div class="new_prodict">
+   <div class="ceng"></div>
+   
+    <div class="new_prodict_box">
+      <img src="images/close.png" alt="" class="close" onclick="close_new_prodict()" />
+
+      <div class="layui-form-item">
+      <label class="layui-form-label">单行输入框</label>
+      <div class="layui-input-block">
+        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input type_name type_name_input">
+      </div>
+    </div>
+
+     <div class="layui-form-item">
+      <label class="layui-form-label type_name">项目类型</label>
+        <div class="type type_label">
+        
+        </div>
+      </div>
+   <!--btn-->
+     <div class="btn_doble">
+       <a href="javascript:;" class="layui-btn layui-btn-primary layui-btn-sm" onclick="close_new_prodict()">取消</a>
+       <a href="javascript:;" class="layui-btn  layui-btn-sm next_btn next_btn_creat">下一步</a>
+       <a href="javascript:;" class="layui-btn  layui-btn-sm next_btn edit_btn">下一步</a>
+       <a href="javascript:;" class="layui-btn  layui-btn-sm next_btn copy_btn">下一步</a>
+     </div>
+  </div>
+  </div>
+<!--弹出层-->
+</body>
+  <script src="js/bootstript/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/layui/layui.js"></script>
+  <script type="text/javascript" src="js/layui/lay/modules/layer.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script src="js/bootstript/time-moment.js"></script>
+  <script src="js/bootstript/time-daterangepicker.js"></script>
+  <script type="text/javascript" src="js/myfunctions.js"></script>
+  <script type="text/javascript" src="js/data_center.js"></script>
+</html>
+

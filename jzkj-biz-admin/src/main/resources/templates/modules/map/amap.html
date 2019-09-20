@@ -1,0 +1,88 @@
+<!doctype html>
+
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+
+        <title>地图显示</title>
+
+        <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css?v=1.0" />
+        <style type="text/css">
+        body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+        #container { width:100%; padding:0; margin:0 auto; height:100%;}
+        #map_canvas{width:60%;float:right; text-align:center; line-height:600px; height:600px; display:block; background-color:#ccc; color:#f00;}
+        #lefter{width:40%; float:left; text-align:left; line-height:20px; height:600px; display:block; background-color:#cc0; color:#000;}
+        </style>
+        <script src="http://webapi.amap.com/maps?v=1.3&key=ba10f09184e6401f3cd39f712ef3b0e5"></script>
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.dataTables.js"></script>
+        <script type="text/javascript" src="js/amapapp.js"></script>
+    </head>
+
+    <body>
+    <div id="container">
+        <div id="lefter">
+            <table id="parkingList" cellpadding="0">
+                <thead>
+                <th>ID</th>
+                <th>名称</th>
+                <th>地址</th>
+                <th>经度</th>
+                <th>纬度</th>
+                <th>编辑</th>
+                </thead>
+            </table>
+        </div>
+
+        <div id="map_canvas"></div>
+        </div>
+
+    </body>
+
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+    <!--<meta charset="utf-8">-->
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+    <!--<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">-->
+    <!--<title>查坐标</title>-->
+    <!--<link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css?v=1.0" />-->
+    <!--<link rel="stylesheet"  type="text/css"href="css/jquery.dataTables.css">-->
+    <!--<style type="text/css">-->
+        <!--body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}-->
+        <!--#container { width:100%; padding:0; margin:0 auto; height:100%;}-->
+        <!--#map_canvas{width:60%;float:right; text-align:center; line-height:600px; height:600px; display:block; background-color:#ccc; color:#f00;}-->
+        <!--#lefter{width:40%; float:left; text-align:left; line-height:20px; height:600px; display:block; background-color:#cc0; color:#000;}-->
+    <!--</style>-->
+
+
+    <!--<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=ba10f09184e6401f3cd39f712ef3b0e5"></script>-->
+    <!--<script type="text/javascript" src="js/jquery.js"></script>-->
+    <!--<script type="text/javascript" src="js/jquery.dataTables.js"></script>-->
+    <!--&lt;!&ndash;<script type="text/javascript" src="js/amapapp.js"></script>&ndash;&gt;-->
+    <!--<title>编辑停车场地理位置</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="container">-->
+    <!--<div id="lefter">-->
+        <!--<table id="parkingList" cellpadding="0">-->
+            <!--<thead>-->
+            <!--<th>ID</th>-->
+            <!--<th>名称</th>-->
+            <!--<th>地址</th>-->
+            <!--<th>经度</th>-->
+            <!--<th>纬度</th>-->
+            <!--<th>编辑</th>-->
+            <!--</thead>-->
+        <!--</table>-->
+    <!--</div>-->
+
+    <!--<div id="map_canvas"></div>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->

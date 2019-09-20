@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <meta charset="utf-8">
+
+    <title>产品列表</title>
+    <#include "/header.html">
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="showList">
+        <div class="grid-btn">
+            <div class="form-group col-sm-2">
+                <input type="text" class="form-control" v-model="q.farmingname" @keyup.enter="query" placeholder="请输入要查询的产品名称">
+            </div>
+            <a class="btn btn-default" @click="query">查询</a>
+            <!--<#if shiro.hasPermission("sys:product:save")>-->
+            <a class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;添加</a>
+        <!--</#if>-->
+        <!--<#if shiro.hasPermission("sys:product:update")>-->
+        <a class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+    <!--</#if>-->
+    <!--<#if shiro.hasPermission("sys:product:delete")>-->
+    <a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+<!--</#if>-->
+</div>
+<table id="jqGrid"></table>
+<div id="jqGridPager"></div>
+</div>
+
+
+
+<div v-show="!showList" class="panel panel-default">
+    <div class="panel-heading">{{title}}</div>
+    <form class="form-horizontal">
+        <div class="form-group">
+
+            <div class="col-sm-10">
+                <input type="hidden" class="form-control" v-model="farm.farminId"  id="xmid"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2 control-label"> 农户名称</div>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" v-model="farm.farmingname" placeholder="农户名称"/>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-sm-2 control-label">农户电话号码</div>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" style="cursor:pointer;" v-model="farm.farmingPhone" placeholder="请输入农户电话号码"/>
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-sm-2 control-label">微信号</div>
+            <div class="col-sm-10">
+            <input v-model="farm.farmingWx"     placeholder="请输入微信号"/>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-2 control-label">身份证号码</div>
+            <div class="col-sm-10">
+            <input v-model="farm.farmingCard"     placeholder="请输入身份证号码"/>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-2 control-label">邮箱</div>
+            <div class="col-sm-10">
+            <input v-model="farm.farmingEmail"     placeholder="请输入邮箱"/>
+                </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2 control-label">产品描述</div>
+            <div class="col-sm-10">
+
+            <input v-model="farm.farming_Image"   class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-sm-2 control-label" class="form-control" >农户头像</div>
+        <Row>
+            <i-col span="16">
+                <Form-item label="农户头像" prop="listPicUrl">
+                    <i-input v-model="farm.farmingImage"   placeholder="农户头像" readonly/>
+                </Form-item>
+            </i-col>
+            <i-col span="3">
+                <Form-item :label-width="1">
+                    <Upload style="width: 300px;" action="/sys/oss/upload" :format="['jpg','jpeg','png']"
+                            max-size="2048"
+                            :on-success="handleSuccessListPicUrl" :on-format-error="handleFormatError"
+                            :show-upload-list="false"
+                            :on-exceeded-size="handleMaxSize">
+                        <i-button icon="ios-cloud-upload-outline">上传图片</i-button>
+                    </Upload>
+                </Form-item>
+            </i-col>
+            <i-col span="3">
+                <Form-item :label-width="1">
+                    <i-button icon="eye" @click="eyeImageListPicUrl">预览图片</i-button>
+                </Form-item>
+            </i-col>
+        </Row>
+        </i-form>
+        </Tab-Pane>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-2 control-label"></div>
+            <input type="button" class="btn btn-primary" @click="saveOrUpdate" value="添加"/>
+            &nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+        </div>
+    </form>
+</div>
+</div>
+
+<!-- 选择产品所属行业 -->
+<div id="deptLayer" style="display: none;padding:10px;">
+    <ul id="deptTree" class="ztree"></ul>
+</div>
+<script src="${request.contextPath}/statics/js/modules/product/farm.js?_${.now?long}"></script>
+<script src="${request.contextPath}/statics/ueitor/ueditor.config.js"></script>
+<script src="${request.contextPath}/statics/ueitor/ueditor.all.min.js"></script>
+<script src="${request.contextPath}/statics/ueitor/lang/zh-cn/zh-cn.js"></script>
+<script src="${request.contextPath}/statics/ueitor/ueditor.parse.min.js"></script>
+</body>
+</html>

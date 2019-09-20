@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>调压箱管理</title>
+<#include "/header.html">
+</head>
+<body>
+<div id="rrapp" v-cloak>
+	<div v-show="showList">
+		<div class="grid-btn">
+			<div class="form-group col-sm-2">
+				<input type="text" class="form-control" v-model="q.boxName" @keyup.enter="query" placeholder="调压箱名称">
+			</div>
+			<a class="btn btn-default" @click="query">搜索</a>
+			<a class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;添加</a>
+			
+			<a class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			
+			<a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+
+	<div v-show="!showList" class="panel panel-default">
+		<div class="panel-heading">{{title}}</div>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<div class="col-sm-2 control-label">设备类型</div>
+				<label class="radio-inline">
+					<input type="radio" name="deviceType" value="0" v-model="device.deviceType"/> 智能调压器
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="deviceType" value="1" v-model="device.deviceType"/> 采集仪
+				</label>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">设备状态</div>
+				<label class="radio-inline">
+					<input type="radio" name="deviceStatus" value="0" v-model="device.deviceStatus"/> 使用
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="deviceStatus" value="1" v-model="device.deviceStatus"/> 停用
+				</label>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">系统名称</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="device.deviceSysname" placeholder="系统名称"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">DTU编号</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="device.deviceDtuid" placeholder="DTU编号"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">SIM卡编号</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="device.deviceSim" placeholder="SIM卡编号"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">数据表结构勾选</div>
+				<div class="col-sm-10" v-if="modelList">
+                                <select id="sysDeviceModelllist" name="sysDeviceModelllist" v-model="deviceModelList"  class="form-control" multiple>
+                                        
+                                        <option v-for='model in modelList' :value='model.modelId'>
+											{{model.modelName}}
+										</option>
+										<!-- <option value="0">苹果</option>
+                                        <option value="1">菠萝</option>
+                                        <option value="2">香蕉</option>
+                                        <option value="3">火龙果</option>
+                                        <option value="4">梨子</option>
+                                        <option value="5">草莓</option>
+                                        <option value="6">哈密瓜</option>
+                                        <option value="7">椰子</option>
+                                        <option value="8">猕猴桃</option>
+                                        <option value="9">桃子</option> -->
+										<!-- <option :value="model.modelid" v-for="model in modelList" >{{model.modelname}}->{{model.modeldatatype}}</option> --> 
+                                </select>
+                            </div>
+			</div>
+			
+			
+			<div class="form-group">
+				<div class="col-sm-2 control-label">路信息</div>
+				<div class="col-sm-10">
+					<input type="hidden" class="form-control" style="cursor:pointer;" v-model="device.deviceRoadId" />
+					<input type="text" class="form-control" v-model="roadName" style="cursor:pointer;" @click="roadTree" readonly="readonly" placeholder="请选择路信息"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">数据表名</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="device.deviceDatatablename" placeholder="数据表名"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">负责人电话</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="device.devicePicPhone" placeholder="负责人电话"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">负责人邮箱</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="device.devicePicEmail" placeholder="负责人邮箱"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">负责人微信</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="device.devicePicWeixin" placeholder="负责人微信"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">设备唯一编号</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="device.deviceUniqueno" placeholder="设备唯一编号"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label"></div>
+				<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="提交"/>
+				&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- 闁瀚ㄩ崗顒�寰� -->
+<div id="roadLayer" style="display: none;padding:10px;">
+	<ul id="roadTree" class="ztree"></ul>
+</div>
+
+<script src="${request.contextPath}/statics/js/modules/devices/deviceslist.js?_${.now?long}"></script>
+</body>
+</html>

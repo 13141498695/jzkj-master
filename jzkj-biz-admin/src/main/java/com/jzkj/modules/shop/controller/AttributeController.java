@@ -1,0 +1,102 @@
+package com.jzkj.modules.shop.controller;
+
+
+import com.jzkj.common.platform.utils.Query;
+import com.jzkj.common.platform.utils.R;
+import com.jzkj.common.utils.PageUtils;
+import com.jzkj.modules.shop.entity.AttributeEntity;
+import com.jzkj.modules.shop.service.AttributeService;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Controller
+ *
+ * @author zhangbin
+ * @email 1314149869@163.com
+ * @date 2018-08-19 09:37:35
+ */
+
+@RestController
+@RequestMapping("attribute")
+public class AttributeController {
+    @Autowired
+    private AttributeService attributeService;
+
+    /**
+     * 查看列表
+     */
+    @RequestMapping("/list")
+    @RequiresPermissions("attribute:list")
+    public R list(@RequestParam Map<String, Object> params) {
+        //查询列表数据
+        Query query = new Query(params);
+
+        List<AttributeEntity> attributeList = attributeService.queryList(query);
+        int total = attributeService.queryTotal(query);
+
+        PageUtils pageUtil = new PageUtils(attributeList, total, query.getLimit(), query.getPage());
+
+        return R.ok().put("page", pageUtil);
+    }
+
+
+    /**
+     * 查看信息
+     */
+    @RequestMapping("/info/{id}")
+    @RequiresPermissions("attribute:info")
+    public R info(@PathVariable("id") Integer id) {
+        AttributeEntity attribute = attributeService.queryObject(id);
+
+        return R.ok().put("attribute", attribute);
+    }
+
+    /**
+     * 保存
+     */
+    @RequestMapping("/save")
+    @RequiresPermissions("attribute:save")
+    public R save(@RequestBody AttributeEntity attribute) {
+        attributeService.save(attribute);
+
+        return R.ok();
+    }
+
+    /**
+     * 修改
+     */
+    @RequestMapping("/update")
+    @RequiresPermissions("attribute:update")
+    public R update(@RequestBody AttributeEntity attribute) {
+        attributeService.update(attribute);
+
+        return R.ok();
+    }
+
+    /**
+     * 删除
+     */
+    @RequestMapping("/delete")
+    @RequiresPermissions("attribute:delete")
+    public R delete(@RequestBody Integer[] ids) {
+        attributeService.deleteBatch(ids);
+
+        return R.ok();
+    }
+
+    /**
+     * 查看所有列表
+     */
+    @RequestMapping("/queryAll")
+    public R queryAll(@RequestParam Map<String, Object> params) {
+
+        List<AttributeEntity> list = attributeService.queryList(params);
+
+        return R.ok().put("list", list);
+    }
+}

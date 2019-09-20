@@ -1,0 +1,70 @@
+​<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <!-- element-ui JS CSS得引入 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <title></title>
+</head>
+
+<body>
+    <div id="app">
+        <el-upload class="upload-demo" ref="upload" action="http://172.26.28.4:8073/biz-admin/product/sysbox/file"
+            :on-preview="handlePreview" :on-remove="handleRemove" :file-list="fileList" :auto-upload="false">
+            <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+            <el-button style="margin-left: 10px;" size="small" type="success" :on-success="Success" :on-error="rror"
+                @click="submitUpload">上传到服务器</el-button>
+            <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+        </el-upload>
+    </div>
+    </div>
+
+    <script type="text/javascript">
+        // Vue实例化
+        var doit = new Vue({
+            el: '#app',
+            data: {
+                fileList: []
+            },
+            methods: {
+                submitUpload() {
+                    this.$refs.upload.submit();
+                },
+                handleRemove(file, fileList) {
+                    console.log(file, fileList);
+                },
+                handlePreview(file) {
+                    console.log(file);
+                },
+                //成功返回
+                Success(file, fileList) {
+                    console.log(file, fileList);
+                    console.log("成功");
+                },
+                //失败返回
+                rror(file, fileList) {
+                    console.log(file, fileList);
+                    console.log("err----");
+                }
+            },
+        })
+
+    </script>
+
+    <style>
+        #app {
+            font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+            color: #756C83;
+        }
+    </style>
+</body>
+
+</html>
+
+​

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>地图类型切换</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main.css?v=1.0" />
+    <link rel="stylesheet"  type="text/css"href="css/jquery.dataTables.css">
+    <style type="text/css">
+        body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+        #container { width:100%; padding:0; margin:0 auto; height:100%;}
+        #map_canvas{width:60%;float:right; text-align:center; line-height:600px; height:600px; display:block; background-color:#ccc; color:#f00;}
+        #lefter{width:40%; float:left; text-align:left; line-height:20px; height:600px; display:block; background-color:#cc0; color:#000;}
+    </style>
+    <script src="http://webapi.amap.com/maps?v=1.3&key=ba10f09184e6401f3cd39f712ef3b0e5"></script>
+
+</head>
+<body>
+<div id="mapContainer"></div>
+<div class="tip">使用右上角的地图切换插件进行地图类型切换</div>
+<script>
+    var map = new AMap.Map("mapContainer", {
+        resizeEnable: true,
+        center: [116.397428, 39.90923],
+        zoom: 13
+    });
+    // 地图类型切换
+    map.plugin(["AMap.MapType"], function () {
+        var type = new AMap.MapType({
+            defaultType: 0
+        });
+        map.addControl(type);
+    });
+</script>
+</body>
+</html>

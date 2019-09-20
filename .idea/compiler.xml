@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="jzkj-biz-admin" />
+        <module name="jzkj-biz-api" />
+        <module name="jzkj-biz-appApi" />
+        <module name="jzkj-common" />
+        <module name="jzkj-eureka" />
+        <module name="jzkj-eurekaclient" />
+        <module name="jzkj-miservice" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gasxgj3iotyun" target="1.8" />
+      <module name="gasxgj3iotyun-biz-admin" target="1.8" />
+      <module name="gasxgj3iotyun-biz-appApi" target="1.8" />
+      <module name="gasxgj3iotyun-common" target="1.8" />
+      <module name="gasxgj3iotyun-eureka" target="1.8" />
+      <module name="jzkj" target="1.8" />
+      <module name="jzkj-biz-admin" target="1.8" />
+      <module name="jzkj-biz-api" target="1.8" />
+      <module name="jzkj-common" target="1.8" />
+      <module name="jzkj-eureka" target="1.8" />
+      <module name="jzkj-eurekaclient" target="1.8" />
+      <module name="jzkj-miservice" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="jzkj" options="-parameters" />
+      <module name="jzkj-biz-admin" options="-parameters" />
+      <module name="jzkj-biz-api" options="-parameters" />
+      <module name="jzkj-common" options="-parameters" />
+      <module name="jzkj-eureka" options="-parameters" />
+      <module name="jzkj-eurekaclient" options="-parameters" />
+      <module name="jzkj-miservice" options="-parameters" />
+    </option>
+  </component>
+</project>

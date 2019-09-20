@@ -1,0 +1,9 @@
+#配置eureka获取服务地址，这里使用的是本地注册中心
+spring:
+  #服务名称，更关键，使用feign进行服务消费将以此为依据
+  application:
+        name: gasxgj3iotyun-eurekaclient
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/

@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<!--<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title></title>
+	&lt;!&ndash;css&ndash;&gt;
+	&lt;!&ndash;css&ndash;&gt;
+	<link rel="Shortcut Icon" type="images/x-icon" href="images/favicon.ico" />
+	<link href="${request.contextPath}/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/pubile.css" />
+	<link rel="stylesheet" type="text/css" href="${request.contextPath}/js/layui/css/layui.css" />
+	<link rel="stylesheet" type="text/css" href="${request.contextPath}/js/layui/css/modules/layer/default/layer.css" />
+	<link rel="stylesheet" type="text/css" href="${request.contextPath}/js/swipe/swiper.min.css" />
+	<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/common.css" />
+	<link rel="stylesheet" type="text/css" href="${request.contextPath}/css/index.css" />
+
+	&lt;!&ndash;js&ndash;&gt;
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript">
+        //默认按钮宽度设置
+        $(function() {
+            $(document).find(".fixbtn_assembly").css({
+                'width': '325px',
+                'left':'50%',
+                'opacity':'1',
+                "margin-left":'-162.5px'
+            });
+
+            $(document).find(".go").hide();
+            $(document).find(".all_component").find(".close").show();
+            $(document).find(".imgs_assembly").find(".close").show();
+
+        })
+	</script>-->
+</head>
+<body>
+
+<!--header   start-->
+<div class="header">
+	<a href="index.html"><img src="images/logo.png" alt="" class="logo"  /></a>
+	<ul>
+		<li class="company"><span>北京睿道网络科技有限公司</span><a href="login.html" class="blue">退出</a></li>
+		<li class="new_prodict_show"><a href="javascript:;">创建新项目</a></li>
+	</ul>
+
+</div>
+
+<div class="main">
+	<!--left_concont  start-->
+	<div class="left_concont">
+		<ul>
+			<li class="cur"><a href="index.html"><img src="images/meau_1.png" alt="" />项目中心</a></li>
+			<li><a href="data_center.html"><img src="images/meau_2.png" alt="" />数据中心</a></li>
+			<li><a href="templute_center.html"><img src="images/meau_3.png" alt="" />模板中心</a></li>
+		</ul>
+	</div>
+
+	<!--left_concont  end-->
+
+	<!--content  start-->
+	<div class="content content_cj">
+		<!--content_nav  开始-->
+		<div class="content_nav">
+			<a href="index.html" class="blue">项目中心</a><span class="layui-icon" style="padding:0 10px;">&#xe602;</span>编辑项目
+			<ol>
+				<li style="padding-right:0;" class="preservation_fabu"><span class="glyphicon glyphicon-triangle-right"></span>发布</li>
+				<li class="preservation_baocun"><span class="glyphicon glyphicon-open-file"></span>保存</li>
+				<li class="preservation_yulan"><span class="glyphicon glyphicon-eye-open"></span>预览</li>
+			</ol>
+		</div>
+		<!--content_nav  结束-->
+
+
+		<!-- assembly  组件 开始 -->
+		<div class="assembly">
+			<h5 class="title">组件库<span class="layui-icon R">&#xe61a;</span></h5>
+			<ul class="assembly_ul">
+				<li id="img_assembly"  data-cover = "0" data-right ="0" data-index='0'><div><img src="images/img.png" alt="" /></div>图片</li>
+				<li id="video_assembly" data-cover = "0" data-index='0' data-right ="0"><div><img src="images/video.png" alt="" /></div>视频</li>
+				<li id="load_assembly" data-cover = "0" data-index='0' data-right ="0"><div><img src="images/load.png" alt="" /></div>应用下载</li>
+				<li id="imgs_assembly" data-cover = "0" data-index='0' data-right ="0"><div><img src="images/imgs.png" alt="" /></div>轮播图</li>
+				<li id="from_assembly" data-cover = "0" data-index='0' data-right ="0"><div><img src="images/from.png" alt="" /></div>表单</li>
+				<li id="btns_assembly" data-cover = "0" data-index='0' data-right ="0"><div><img src="images/btns.png" alt="" /></div>普通按钮</li>
+				<li id="fixbtn_assembly" data-cover = "0" data-index='0' data-right ="0"><div><img src="images/fixbtn.png" alt="" /></div>固定按钮</li>
+			</ul>
+		</div>
+
+		<!-- assembly  组件 结束 -->
+
+		<!-- show_assembly  展示组件 开始 -->
+		<div class="show_assembly">
+			<div class="show_assembly_in">
+				<ul class="cover_zj"></ul>
+			</div>
+		</div>
+		<!-- show_assembly  展示组件 结束 -->
+
+		<!-- set_assembly  设置组件 开始 -->
+		<div class="set_assembly">
+			<h5 class="title">设置</h5>
+			<div class="right_cover"></div>
+		</div>
+		<!-- set_assembly  设置组件 结束 -->
+	</div>
+	<!--content  end-->
+</div>
+<!--main  end-->
+
+<!--form_box     start-->
+<div class="form_box">
+	<div class="ceng"></div>
+	<div class="form_cover">
+
+		<div class="control c">
+			<span class="name">选择控件</span>
+			<ul>
+				<li><img src="images/1_03.png" alt="" />输入框</li>
+				<li><img src="images/1_05.png" alt="" />下拉框</li>
+				<li><img src="images/1_07.png" style="width:16px!important;" alt="" />单选框</li>
+				<li><img src="images/1_09.png" alt="" />联动数据</li>
+			</ul>
+		</div>
+
+		<div class="control_name c">
+			<span class="name">控件名称</span>
+			<div class="R"><input type="text"  placeholder="请输入控件名称" class="layui-input control_nameinput" value="" /></div>
+		</div>
+
+		<div class="control_type c">
+			<div class="sex">
+				<span class="name">类型</span>
+				<div class="R sex">
+					<input type="radio" name="type1" class="sexs" />性别
+					<input type="radio" name="type1" class="custom custom0" />自定义
+				</div>
+			</div>
+
+			<div class="address_Creat">
+				<span class="name">类型</span>
+				<div class="R address_r">
+					<input type="radio" name="type" value="省市县" />省市县
+					<input type="radio" name="type" value="通讯地址" />通讯地址
+				</div>
+			</div>
+		</div>
+
+		<div class="control_choose c">
+			<span class="name">选项</span>
+			<div class="R">
+				<div class="ad_choose"></div>
+				<span class="add_choose">+添加数据项</span>
+			</div>
+		</div>
+
+		<div class="control_fill c">
+			<span class="name">是否必填</span>
+			<div class="R">
+				<input type="radio" name="fill" value="是" class="ismust" />是
+				<input type="radio" name="fill" class="custom ismust" value="否" />否
+			</div>
+		</div>
+
+		<!--btn-->
+		<div class="btn btns">
+			<div class="btn">
+				<a href="javascript:;" class="layui-btn layui-btn-primary layui-btn-sm" onclick="$('.form_box').hide()">取消</a>
+				<a href="javascript:;" class="layui-btn  layui-btn-sm preservation">保存</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!--form_box end-->
+
+<!--form_box_creat     start-->
+<div class="form_box_creat" style="display:none;">
+	<div class="ceng"></div>
+	<div class="form_cover">
+
+		<div class="control c">
+			<span class="name">选择控件</span>
+			<ul>
+				<li><img src="images/1_03.png" alt="" />输入框</li>
+				<li><img src="images/1_05.png" alt="" />下拉框</li>
+				<li><img src="images/1_07.png" style="width:16px!important;" alt="" />单选框</li>
+				<li><img src="images/1_09.png" alt="" />联动数据</li>
+			</ul>
+		</div>
+
+		<div class="control_name c">
+			<span class="name">控件名称</span>
+			<div class="R"><input type="text"  placeholder="请输入控件名称" class="layui-input control_nameinput" value="" /></div>
+		</div>
+
+		<div class="control_type c">
+			<div class="sex">
+				<span class="name">类型</span>
+				<div class="R sex">
+					<input type="radio" name="type1" class="sexs" />性别
+					<input type="radio" name="type1" class="custom custom0" />自定义
+				</div>
+			</div>
+
+			<div class="address_Creat">
+				<span class="name">类型</span>
+				<div class="R address_r">
+					<input type="radio" name="type" value="省市县"  checked="checked" />省市县
+					<input type="radio" name="type" value="通讯地址" />通讯地址
+				</div>
+			</div>
+		</div>
+
+		<div class="control_choose c">
+			<span class="name">选项</span>
+			<div class="R">
+				<div class="choose"><input type="text"  placeholder="请输入选项名称" class="layui-input" ><i class="blue">删除</i></div>
+				<span class="add_choose">+添加数据项</span>
+			</div>
+		</div>
+
+		<div class="control_fill c">
+			<span class="name">是否必填</span>
+			<div class="R">
+				<input type="radio" name="fill" class="fill" value="是" checked="checked" />是
+				<input type="radio" name="fill" class="fill" value="否" />否
+			</div>
+		</div>
+
+		<!--btn-->
+		<div class="btn btns">
+			<a href="javascript:;" class="layui-btn layui-btn-primary layui-btn-sm" onclick="$('.form_box_creat').hide()">取消</a>
+			<a href="javascript:;" class="layui-btn  layui-btn-sm preservation">保存</a>
+		</div>
+	</div>
+</div>
+<!--form_box_creat end-->
+
+<div class="img_Set" style="display:none;">
+	<div class="ceng"></div>
+	<div class="img_cover">
+		<p style="padding-bottom:20px;">拖动图片调整播放顺序（可同时选取多张上传）</p>
+		<ol class="coverimg">
+
+		</ol>
+
+		<div class="add_imgs containcover">
+			<input type="file" id="goodsDetailPic" name="file[]" multiple="multiple" />
+			<!-- <input type="hidden" name="template_id"> -->
+			<input type="hidden" name="test" value="test">
+			<img src="../images/add.png" alt="" />
+		</div>
+
+		<div class="btns">
+			<a href="javascript:;" class="layui-btn layui-btn-primary qx layui-btn-sm">取消</a>
+			<a href="javascript:;" class="layui-btn  layui-btn-sm sure_btn">确认</a>    </div>
+	</div>
+</div>
+
+<!--弹出层 end-->
+<div class="new_prodict">
+	<div class="ceng"></div>
+
+	<div class="new_prodict_box">
+		<img src="images/close.png" alt="" class="close" onclick="close_new_prodict()" />
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">单行输入框</label>
+			<div class="layui-input-block">
+				<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input type_name type_name_input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label type_name">项目类型</label>
+			<div class="type type_label">
+
+			</div>
+		</div>
+		<!--btn-->
+		<div class="btn_doble">
+			<a href="javascript:;" class="layui-btn layui-btn-primary layui-btn-sm" onclick="close_new_prodict()">取消</a>
+			<a href="javascript:;" class="layui-btn  layui-btn-sm next_btn next_btn_creat">下一步</a>
+			<a href="javascript:;" class="layui-btn  layui-btn-sm next_btn edit_btn">下一步</a>
+			<a href="javascript:;" class="layui-btn  layui-btn-sm next_btn copy_btn">下一步</a>
+		</div>
+	</div>
+</div>
+<!--弹出层-->
+
+<!--预览弹出层  开始-->
+<div class="look_ceng" style="display:none;">
+	<div class="ceng"></div>
+	<img src="images/guanbia.png" class="guanbiya" alt="" onclick="$('.look_ceng').hide();" />
+	<div class="look_ceng_box">
+		<div class="ipone_box">
+			<div class="ipone_box_infrom"><iframe src="" height="470px" width="100%" class="lp_url"></iframe></div>
+		</div>
+
+		<div class="looka_ewm">
+			<p>请用微信客户端扫码预览</p>
+			<div id="qrcode" class="ewm"></div>
+			<div class="copy_inp"><input type="text" class="layui-input copy_inputs" id="copy_inputs" /><div class="layui-btn layui-btn-sm layui-btn-normal">复制链接</div></div>
+			<input type="hidden" id="text" value="" />
+		</div>
+	</div>
+</div>
+<!--预览弹出层  结束-->
+
+</body>
+<!--<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/layui/layui.js"></script>
+<script type="text/javascript" src="js/layui/lay/modules/layer.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script src="js/distpicker.data.js"></script>
+<script src="js/distpicker.js"></script>
+<script type="text/javascript" src="js/project_center.js"></script>
+<script type="text/javascript" src="js/index_Ajax.js"></script>
+<script type="text/javascript" src="js/ddsort.js"></script>
+<script type="text/javascript" src="js/qrcode.min.js"></script>
+<script type="text/javascript" src="js/swipe/swiper.min.js"></script>
+&lt;!&ndash;<script type="text/javascript">-->
+
+<!--    var $distpicker = $('#distpicker');
+    $('.citys').distpicker();
+
+    var href = window.location.host;
+    var www = window.location.protocol+'//'+href+"/";
+
+    //二维码预览
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        width : 200,å
+        height : 200
+    });
+
+
+    /********复制链接  开始 ************/
+    $(".copy_inp .layui-btn-sm").click(function(event) {
+        var oContent=document.getElementById("copy_inputs");
+        oContent.select(); // 选择对象
+        document.execCommand("Copy"); // 执行浏览器复制命令
+        layer.msg('复制完毕，可粘贴', {icon: 1});
+    });
+    /********复制链接  结束 ************/
+
+</script>&ndash;&gt;-->
+</html>
+
+<script src="${request.contextPath}/statics/js/modules/devices/deviceslist.js?_${.now?long}"></script>
+</body>
+</html>

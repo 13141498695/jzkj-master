@@ -1,0 +1,133 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>建站宝-项目中心</title>
+	<!--css-->
+  <link rel="Shortcut Icon" type="images/x-icon" href="images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/pubile.css" />
+  <link rel="stylesheet" type="text/css" href="js/layui/css/layui.css" />
+  <link rel="stylesheet" type="text/css" href="js/layui/css/modules/layer/default/layer.css" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/common.css" />
+
+	<!--js-->
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+
+	<!--header  start-->
+		<div class="header">
+			<a href="index.html"><img src="images/logo.png" alt="" class="logo"  /></a>
+			  <ul>
+			  	<li class="company"><span>北京睿道网络科技有限公司</span><a href="login.html" class="blue">退出</a></li>
+			  	<li class="new_prodict_show"><a href="javascript:;">创建新项目</a></li>
+			  </ul>
+
+		</div>
+	<!--header   end-->
+
+ <!--main  start-->
+  <div class="main">
+   <!--left_concont  start-->
+  	<div class="left_concont">
+	  	<ul>
+        <li class="cur"><a href="index.html"><img src="images/meau_1.png" alt="" />项目中心</a></li>
+        <li><a href="data_center.html"><img src="images/meau_2.png" alt="" />数据中心</a></li>
+        <li><a href="templute_center.html"><img src="images/meau_3.png" alt="" />模板中心</a></li>
+	  	</ul>
+    </div>
+
+  <!--left_concont  end-->
+   
+  <!--content  start-->
+    <div class="content">
+       <!--表格渲染 开始-->
+          <div class='table-cont' id="table-cont">
+            <table class="table-width">
+                      <thead>
+                        <tr>
+                          <th width="150px">页面ID</th>
+                          <th width="300px">项目名称</th>
+                          <th width="150px">页面缩略图</th>
+                          <th width="260px">行业类型</th>
+                          <th width="150px">上次编辑时间</th>
+                          <th width="160px">状态</th>
+                          <th width="100px">数据</th>
+                          <th width="380px">操作</th>
+                      </tr>
+                    </thead>
+                        <tbody class="page_table"></tbody>
+                  </table>
+           </div>
+
+           <div class="showimgy"><img src="images/nodata.png" class="nodata" alt="" /></div>
+
+                <ul class="page">
+                    <li class="no_border">每页显示条数</li>
+                    <li class="no_border">
+                      <select onchange="page_limit()" id="page_limit"><option value="10">10条</option>
+                      <option value="20">20条</option>
+                      <option value="30">30条</option>
+                    </select>
+                    </li>
+                    <span class="page_table_link page" actions="page"></span>
+                </ul>
+          <!--表格渲染 结束-->
+
+        <div class="banquqn">版权所有 北京睿道网络科技有限公司  京ICP备15022017号-1</div>
+    </div>
+  <!--content  end-->
+  </div>
+<!--main  end-->
+
+<!--弹出层 end-->
+  <div class="new_prodict">
+   <div class="ceng"></div>
+   
+    <div class="new_prodict_box">
+      <img src="images/close.png" alt="" class="close" onclick="close_new_prodict()" />
+
+      <div class="layui-form-item">
+      <label class="layui-form-label">单行输入框</label>
+      <div class="layui-input-block">
+        <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入标题" class="layui-input type_name type_name_input">
+      </div>
+    </div>
+
+     <div class="layui-form-item">
+      <label class="layui-form-label type_name">项目类型</label>
+        <div class="type type_label">
+        
+        </div>
+      </div>
+   <!--btn-->
+     <div class="btn_doble">
+       <a href="javascript:;" class="layui-btn layui-btn-primary layui-btn-sm" onclick="close_new_prodict()">取消</a>
+       <a href="javascript:;" class="layui-btn  layui-btn-sm next_btn next_btn_creat">下一步</a>
+       <a href="javascript:;" class="layui-btn  layui-btn-sm next_btn edit_btn">下一步</a>
+       <a href="javascript:;" class="layui-btn  layui-btn-sm next_btn copy_btn">下一步</a>
+     </div>
+  </div>
+  </div>
+<!--弹出层-->
+
+<!--删除弹层-->
+ <div class="shanchuceng" style="display:none;">
+   <div class="ceng"></div>
+   <div class="shanbox">
+     <img src="images/close.png" alt="" class="gjshanchu" />
+     确定删除该项目？
+     <div class="annius"><a href="javascript:;" class="layui-btn layui-btn-primary layui-btn-sm gjshanchu">取消</a><a href="javascript:;" class="layui-btn layui-btn-primaryred  layui-btn-sm">删除</a></div>
+   </div>
+ </div>
+</body>
+  <script src="js/bootstript/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/myfunctions.js"></script>
+  <script type="text/javascript" src="js/layui/layui.js"></script>
+  <script type="text/javascript" src="js/layui/lay/modules/layer.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+</html>
+

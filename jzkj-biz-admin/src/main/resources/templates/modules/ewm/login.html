@@ -1,0 +1,49 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>建站宝-登陆</title>
+	<!--css-->
+  <link rel="Shortcut Icon" type="images/x-icon" href="images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/pubile.css" />
+	<link rel="stylesheet" type="text/css" href="js/layui/css/layui.css" />
+  <link rel="stylesheet" type="text/css" href="js/layui/css/modules/layer/default/layer.css" />
+	<link rel="stylesheet" type="text/css" href="css/register.css" />
+  <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.cookie.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+        var rem = $.cookie('remember');
+        if(rem){
+            $(".email").val($.cookie("username"));
+            $(".password").val($.cookie("password"));
+        }
+    });
+  </script>
+</head>
+<body>
+  <div class="register">
+    <img src="images/regester_logo.png" alt="" class="register_logo" />
+    <ul>
+      <li><input type="text" placeholder="睿道企业邮箱账号" class="layui-input email" /></li>
+      <li><input type="password" placeholder="请输入密码" class="layui-input password"  /></li>
+      <li class="half_li">
+        <input type="text" placeholder="验证码" class="layui-input yzminput" />
+        <canvas id="canvas"></canvas>
+      </li>
+    </ul>
+
+    <div class="agree"><input type="checkbox" id="remember" checked="checked" />记住登录信息<a class="r" href="forget_password.html">忘记密码？</a></div>
+    <a class="layui-btn layui-btn-normal layui-btn-sm layui-btn-fluid zhuce_btn" >立即登录</a>
+    <a class="layui-btn layui-btn-primary layui-btn-sm layui-btn-fluid" href="register.html">马上注册</a>
+
+  </div>
+</body>
+<!--js-->
+  <script type="text/javascript" src="js/layui/layui.js"></script>
+  <script type="text/javascript" src="js/layui/lay/modules/layer.js"></script>
+  <script type="text/javascript" src="js/yzm.js"></script>
+  <script type="text/javascript" src="js/login.js"></script>
+</html>
+

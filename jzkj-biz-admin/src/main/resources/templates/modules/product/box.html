@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>调压箱管理</title>
+<#include "/header.html">
+
+<script src="${request.contextPath}/statics/libs/ajaxupload.js"></script>
+<!-- import Vue before Element -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+<!-- element-ui JS CSS得引入 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+<div id="rrapp" v-cloak>
+	<div v-show="showList">
+		<div class="grid-btn">
+			<div class="form-group col-sm-2">
+				<input type="text" class="form-control" v-model="q.boxName" @keyup.enter="query" placeholder="调压箱名称">
+			</div>
+			<a class="btn btn-default" @click="query">搜索</a>
+			<a class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;添加</a>
+			
+			<a class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			
+			<a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+
+	<div v-show="!showList" class="panel panel-default">
+		<div class="panel-heading">{{title}}</div>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<div class="col-sm-2 control-label">调压箱名称</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="box.boxName" placeholder="调压箱名称"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">调压箱版本</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="box.boxVersion" placeholder="调压箱版本"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">调压箱工厂</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="box.boxFactory" placeholder="调压箱工厂"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">调压箱公司</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="box.boxConpany" placeholder="调压箱公司"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">调压箱地址</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="box.boxAddress" placeholder="调压箱地址"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">调压箱类型</div>
+				<label class="radio-inline">
+					<input type="radio" name="status" value="0" v-model="box.boxType"/> 自建
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="status" value="1" v-model="box.boxType"/> 代管
+				</label>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">调压箱图片</div>
+				<div class="col-sm-10">
+					<a class="btn btn-primary" id="upload"><i class="fa fa-plus"></i>&nbsp;上传文件</a>
+					<el-upload class="upload-demo" ref="upload" action="/biz-admin/product/sysbox/file"
+			            :on-preview="handlePreview" :on-remove="handleRemove" :file-list="fileList" :auto-upload="false">
+			            <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+			            <el-button style="margin-left: 10px;" size="small" type="success" :on-success="Success" :on-error="rror"
+			                @click="submitUpload">上传到服务器</el-button>
+			            <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+			        </el-upload>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">调压箱工艺图</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="box.processDrawing" placeholder="调压箱工艺图"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label"></div>
+				<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="提交"/>
+				&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- 闁瀚ㄩ崗顒�寰� -->
+<div id="deptLayer" style="display: none;padding:10px;">
+	<ul id="deptTree" class="ztree"></ul>
+</div>
+
+<script src="${request.contextPath}/statics/js/modules/product/box.js?_${.now?long}"></script>
+</body>
+</html>

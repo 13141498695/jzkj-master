@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.jzkj.modules.sys.dao.SysSmsLogDao">
+    <select id="queryList" resultType="com.jzkj.modules.sys.entity.SysSmsLogEntity">
+        select
+        sys_sms_log.id,
+        sys_sms_log.user_id,
+        sys_sms_log.content,
+        sys_sms_log.mobile,
+        sys_sms_log.stime,
+        sys_sms_log.sign,
+        sys_sms_log.type,
+        sys_sms_log.extno,
+        sys_sms_log.send_status,
+        sys_sms_log.send_id,
+        sys_sms_log.invalid_num,
+        sys_sms_log.success_num,
+        sys_sms_log.black_num,
+        sys_sms_log.return_msg,
+        sys_user.username user_name
+        from sys_sms_log
+        LEFT JOIN sys_user ON sys_user.user_id = sys_sms_log.user_id
+        WHERE 1=1
+        <if test="sendId != null and sendId != ''">
+            AND sys_sms_log.send_id LIKE concat('%',#{sendId},'%')
+        </if>
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+            <otherwise>
+                order by stime DESC
+            </otherwise>
+        </choose>
+        <if test="offset != null and limit != null">
+            limit #{offset}, #{limit}
+        </if>
+    </select>
+</mapper>

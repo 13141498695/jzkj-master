@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/jzkj.iml" filepath="$PROJECT_DIR$/.idea/jzkj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzkj-biz-admin/jzkj-biz-admin.iml" filepath="$PROJECT_DIR$/jzkj-biz-admin/jzkj-biz-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzkj-biz-api/jzkj-biz-api.iml" filepath="$PROJECT_DIR$/jzkj-biz-api/jzkj-biz-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzkj-common/jzkj-common.iml" filepath="$PROJECT_DIR$/jzkj-common/jzkj-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzkj-eureka/jzkj-eureka.iml" filepath="$PROJECT_DIR$/jzkj-eureka/jzkj-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzkj-eurekaclient/jzkj-eurekaclient.iml" filepath="$PROJECT_DIR$/jzkj-eurekaclient/jzkj-eurekaclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jzkj-miservice/jzkj-miservice.iml" filepath="$PROJECT_DIR$/jzkj-miservice/jzkj-miservice.iml" />
+    </modules>
+  </component>
+</project>

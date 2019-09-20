@@ -1,0 +1,136 @@
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<html>
+<head>
+	<!-- 公共资源CSS  -->
+	<link rel="stylesheet" type="text/css"
+		  href="${request.contextPath}/statics/styles/h-ui/static/h-ui/css/H-ui.min.css" />
+	<link rel="stylesheet" type="text/css"
+		  href="${request.contextPath}/statics/styles/h-ui/static/h-ui.admin/css/H-ui.admin.css" />
+	<link rel="stylesheet" type="text/css"
+		  href="${request.contextPath}/statics/styles/h-ui/lib/Hui-iconfont/1.0.7/iconfont.css" />
+	<link rel="stylesheet" type="text/css"
+		  href="${request.contextPath}/statics/styles/h-ui/lib/icheck/icheck.css" />
+	<link rel="stylesheet" type="text/css"
+		  href="${request.contextPath}/statics/styles/h-ui/static/h-ui.admin/skin/default/skin.css"
+		  id="skin" />
+	<link rel="stylesheet" type="text/css"
+		  href="${request.contextPath}/statics/styles/h-ui/static/h-ui.admin/css/style.css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>产品详情管理</title>
+</head>
+<body>
+	<nav class="breadcrumb"> <i class="Hui-iconfont">&#xe67f;</i> 首页
+	<span class="c-gray en">&gt;</span> 产品详情 <span class="c-gray en">&gt;</span>
+		产品详情列表 </nav>
+
+	<div class="page-container">
+
+		<div class="page-container">
+			<div class="cl pd-5 bg-1 bk-gray mt-20">
+				<span class="l"> <a class="btn btn-primary radius"
+					data-title="添加用户" href="javascript:;"
+					onclick="add('商品用户','${request.contextPath}/toInsertUser','800','500')">
+						<i class="Hui-iconfont">&#xe600;</i> 添加用户
+				</a>
+				</span>
+			</div>
+			<div class="mt-20">
+				<table
+					class="table table-border table-bordered table-bg table-hover table-sort">
+					<thead>
+						<tr class="text-c">
+							<th>序号</th>
+							<th>姓名</th>
+							<th>登录名</th>
+							<th>密码</th>
+							<th>性别</th>
+							<th>年龄</th>
+							<th>生日</th>
+							<th>手机号</th>
+							<th>邮箱</th>
+							<th>身份证</th>
+							<th>头像</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody>
+					<%--{ label: '产品id', name: 'productId',  index: "productId",width: 45, key: true,hidden:true},--%>
+					<%--{ label: '产品名称', name: 'productName', width: 40 },--%>
+					<%--{ label: '产品版本', name: 'productVersion', sortable: false, width: 40 },--%>
+					<%--{ label: '产品类型', name: 'productType', width: 20 },--%>
+					<%--{ label: '公司', name: 'productCompany', width: 30 },--%>
+					<%--{ label: '公司id', name: 'deptId', width: 30 ,hidden:true},--%>
+
+					<c:forEach items="${product }" var="user" varStatus="u">
+						<tr class="text-c">
+							<td>${u.count }</td>
+							<td>${product.productId }</td>
+							<td>${product.productName }</td>
+							<td>${product.productVersion }</td>
+							<td>${product.productType }</td>
+							<td>${product.sex==0?'男':'女'}</td>
+							<td>${product.productCompany}</td>
+							<td>${product.productContext}</td>
+
+							<td>
+
+							</td>
+
+							<td width="20%"><a title="修改" href="javascript:;"
+											   onclick="edit('信息修改','${request.contextPath}/toUpdateUser','${user.userId }','800','500')"
+											   class="ml-5" style="text-decoration: none"> <i
+									class="Hui-iconfont">&#xe6df;</i>
+							</a> &nbsp; &nbsp; <a title="删除" href="javascript:;"
+												  onclick="del(this,'${product.productId}','${product.productName}')"
+												  class="ml-5" style="text-decoration: none"> <i
+									class="Hui-iconfont">&#xe6e2;</i>
+							</a></td>
+						</tr>
+					</c:forEach>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<script type="text/javascript">
+	// 分页
+	$('.table-sort').dataTable({
+		"aaSorting": [[ 0, "asc" ]],//默认第几个排序
+		"bStateSave": false,//状态保存
+		"aoColumnDefs": [
+		  {"orderable":false,"aTargets":[0]}// 写出：不参与   排序的列
+		]
+	});
+	
+	//删除
+	function del(obj,userId,username){
+		layer.confirm("确定要删除" + username + "登录名吗?",function(index){
+			var url = "${request.contextPath}/deleteUser";
+			var params = {};
+			params.userId = userId;
+			$.post(url,params,function(data){
+				if(data.result == 1){
+					$(obj).parents("tr").remove();
+					layer.msg('删除成功!',{icon:1,time:1000});
+					location.reload();
+				}else{
+					layer.msg('删除失败!',{icon:1,time:1000});
+				}
+			});
+		});
+	}
+	
+	// 添加
+	function add(title,url,w,h){
+		layer_show(title,url,w,h);
+	}
+	
+	// 修改
+	function edit(title,url,userId,w,h){
+		url = url + "?userId=" + userId;
+		layer_show(title,url,w,h);
+	}
+	
+	</script>
+</body>
+</html>
